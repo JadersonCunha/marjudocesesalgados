@@ -1,0 +1,555 @@
+:root {
+    --color-pink: #a62a7a;
+    --color-turquoise: #00bcd4;
+    --color-beige: #f4eee7;
+    --color-dark-brown: #362626;
+    --color-dark-origin: #412b2be9;
+    --color-light-gray: #e0e0e0;
+    --color-text: #333;
+    --color-white: #ffffff;
+    --color-dark-orange: #d18d45;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-beige);
+    color: var(--color-text);
+    padding-top: 5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--color-dark-origin);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: var(--color-dark-orange);
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-pink);
+    color: var(--color-white);
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.floating-button:hover {
+    transform: translateY(-5px);
+}
+
+.header {
+    background-color: var(--color-dark-orange);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 7%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header .logo {
+    color: var(--color-white);
+    font-size: 2.5rem;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+.header .navbar a {
+    font-family: "Agbalumo", system-ui;
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    color: var(--color-dark-brown);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.header .navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-white);
+    transition: width 0.3s ease;
+}
+
+.header .navbar a:hover::after {
+    width: 100%;
+}
+
+.header .cart-icon {
+    position: relative;
+    color: var(--color-white);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.header .cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--color-pink);
+    color: var(--color-white);
+    border-radius: 50%;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.fixed-corner-shape {
+    position: fixed;
+    top: -70px;
+    left: -90px;
+    width: 400px;
+    height: 400px;
+    background-color: var(--color-dark-orange);
+    border-bottom-right-radius: 150%;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fixed-corner-shape img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 145px;
+    height: auto;
+    z-index: 1002;
+    
+}
+
+/* --- Seção Home com as imagens --- */
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10rem 7% 2rem;
+    background-color: var(--color-beige);
+    position: relative;
+    overflow: hidden; /* Importante para que as formas cortadas funcionem */
+}
+
+/* Pseudo-elemento para a forma grande de fundo (laranja no exemplo, com a imagem de fundo) */
+.home::before {
+    content: '';
+    position: absolute;
+    border: 11px solid  var(--color-dark-orange);
+    top: 0;
+    right: 0;
+    width: 700px;
+    height: 100%; /* Use 100% para que a altura ocupe toda a seção */
+    background-color: var(--color-dark-orange);
+    background-image: url('/assets/img background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Removemos o clip-path para evitar o conflito */
+    
+    /* AQUI: Ajuste o border-radius para criar o corte arredondado */
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+
+    z-index: 0;
+    opacity: 0.8;
+}
+
+.home::after {
+    /* Mantenha o seu código para o círculo do bolo aqui */
+    /* Garanta que o z-index do ::after seja maior que o do ::before */
+}
+
+/* Pseudo-elemento para a imagem circular (o cupcake rosa no exemplo) */
+.home::after {
+    content: '';
+    position: absolute;
+    bottom: 20%; /* Ajuste a posição vertical para o cupcake */
+    right: 30%; /* Ajuste a posição horizontal para o cupcake */
+    width: 200px; /* Tamanho do círculo */
+    height: 200px; /* Tamanho do círculo */
+    border-radius: 50%;
+    border: 5px solid var(--color-dark-orange);
+    background-image: url('/assets/img_bolo.JPG'); /* Sua imagem do bolo circular */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1; /* Garante que ela esteja acima da forma maior */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
+}
+
+.home .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo de texto fique acima de tudo */
+    padding-left: 5%;
+}
+
+.home .text-content {
+    background-color: var(--color-dark-orange);
+    padding: 4rem;
+    border-radius: 330px;
+    color: var(--color-white);
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-left: 0;
+}
+
+.home .text-content .logo-text {
+    font-size: 5rem;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.home .text-content h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.home .btn {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home .btn:hover {
+    background-color: var(--color-dark-brown);
+}
+
+.image-wrapper { /* Este elemento não será mais necessário com a nova abordagem de pseudo-elementos */
+    display: none;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-dark-brown);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-pink);
+    margin: 10px auto 0;
+}
+
+.products-section, .payment-section, .contact-section {
+    padding: 5rem 7%;
+}
+
+.product-categories {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.category-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    max-width: 300px;
+}
+
+.category-item:hover {
+    transform: translateY(-10px);
+}
+
+.category-item img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-item h3 {
+    margin-top: 1rem;
+    color: var(--color-dark-brown);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 5px;
+}
+
+.contact-form .btn {
+    align-self: flex-start;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content, .modal-content-galeria, .modal-content-carrinho {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+}
+
+.close-btn {
+    color: var(--color-text);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.about-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-pink);
+}
+
+.modal-content-galeria {
+    max-width: 900px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark-brown);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    background-color: var(--color-light-gray);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.gallery-item h4 {
+    color: var(--color-dark-brown);
+    margin-bottom: 0.5rem;
+}
+
+.gallery-item p {
+    color: var(--color-dark-origin);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.cart-items .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info h4 {
+    margin: 0;
+}
+
+.cart-item-info p {
+    color: var(--color-dark-origin);
+}
+
+.cart-item-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cart-item-actions button {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-actions {
+    margin-top: 2rem;
+    text-align: right;
+    border-top: 1px solid var(--color-light-gray);
+    padding-top: 1rem;
+}
+
+.cart-actions .btn {
+    margin-left: 10px;
+}
+
+.footer {
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+    text-align: center;
+    padding: 2rem;
+    position: relative; /* ESSENCIAL: Permite posicionar o ::after */
+    overflow: hidden; /* Oculta qualquer parte do ::after que saia do footer */
+}
+
+.footer .social-icons {
+    margin-top: 1rem;
+}
+
+.footer .social-icons a {
+    color: var(--color-white);
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+.footer::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Desloca o elemento 50px para baixo, fora do footer */
+    right: -30px; /* Desloca o elemento 50px para a direita, fora do footer */
+    width: 50px;
+    height: 150px;
+    border-top-left-radius: 100%;
+    z-index: 0;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 1rem;
+        position: static;
+    }
+
+    .header .navbar {
+        margin-top: 1rem;
+    }
+
+    .header .navbar a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .fixed-corner-shape {
+        display: none;
+    }
+    
+    .home::before, .home::after {
+        display: none;
+    }
+
+    .home .content {
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    .home .image-box {
+        margin: 2rem 0 0;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+}

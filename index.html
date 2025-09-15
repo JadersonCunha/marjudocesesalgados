@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marju Confeitaria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Cedarville+Cursive&family=Dancing+Script:wght@400..700&family=Delius+Unicase:wght@400;700&family=Ewert&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:401&family=Rubik+Dirt&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <a href="#form-pedido" class="floating-button">Faça seu Pedido</a>
+
+    <header class="header">
+        <a href="#" class="logo">Marju</a>
+        <nav class="navbar">
+            <a href="#sobre" class="nav-link" data-modal="modal-sobre">Sobre a Marju</a>
+            <a href="#produtos" class="nav-link">PRODUTOS</a>
+            <a href="#pagamento" class="nav-link">FORMAS DE PAGAMENTO</a>
+            <a href="#contato" class="nav-link">CONTATOS</a>
+        </nav>
+        <div class="cart-icon" id="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
+
+    <div class="fixed-corner-shape">
+        <img src="/assets/logo2.jpg" alt="Logo Marju Confeitaria">
+    </div>
+
+    <section class="home" id="home">
+        <div class="content">
+            <div class="text-content">
+                <span class="logo-text">Marju Confeitaria</span>
+                <h2>SABOREIE MOMENTOS INESQUECÍVEIS</h2>
+                <p>Doces, salgados, tortas e bolos feitos com carinho para você.</p>
+                <a href="#produtos" class="btn">VER PRODUTOS</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal-sobre" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="about-container">
+                <img src="https://via.placeholder.com/200.png?text=Foto+da+Marju" alt="Marju Confeiteira" class="about-image">
+                <div class="about-text">
+                    <h3>Sobre a Marju</h3>
+                    <p>Olá! Meu nome é Marju e a confeitaria é a minha paixão. Desde pequena, crio receitas com o objetivo de adoçar a vida das pessoas. Cada doce é feito com ingredientes de alta qualidade e muito afeto, para que cada mordida seja uma experiência inesquecível. Sejam bem-vindos ao meu mundo de sabores!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="products-section" id="produtos">
+        <h2 class="section-title">NOSSOS PRODUTOS</h2>
+        <div class="product-categories">
+            <div class="category-item" data-category="doces">
+                <img src="https://via.placeholder.com/300x200.png?text=DOCES" alt="Doces">
+                <h3>DOCES</h3>
+            </div>
+            <div class="category-item" data-category="salgados">
+                <img src="https://via.placeholder.com/300x200.png?text=SALGADOS" alt="Salgados">
+                <h3>SALGADOS</h3>
+            </div>
+            <div class="category-item" data-category="bolos">
+                <img src="https://via.placeholder.com/300x200.png?text=BOLOS" alt="Bolos">
+                <h3>BOLOS</h3>
+            </div>
+            <div class="category-item" data-category="tortas">
+                <img src="https://via.placeholder.com/300x200.png?text=TORTAS" alt="Tortas">
+                <h3>TORTAS</h3>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal-galeria" class="modal">
+        <div class="modal-content-galeria">
+            <span class="close-btn">&times;</span>
+            <h3 class="gallery-title"></h3>
+            <div class="gallery-grid">
+            </div>
+        </div>
+    </div>
+
+    <section class="payment-section" id="pagamento">
+        <h2 class="section-title">FORMAS DE PAGAMENTO</h2>
+        <div class="payment-methods">
+            <p>Aceitamos Pix, cartão de crédito, débito e dinheiro. Detalhes serão confirmados após o pedido.</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contato">
+        <h2 class="section-title">ENCOMENDE SEU PEDIDO</h2>
+        <form class="contact-form" id="form-pedido">
+            <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
+            <input type="email" id="email" name="email" placeholder="Seu E-mail" required>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="WhatsApp (DDD) 9xxxx-xxxx" required>
+            <input type="text" id="produto" name="produto" placeholder="Produto desejado" required>
+            <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" required min="1">
+            <input type="text" id="pessoas" name="pessoas" placeholder="Quantidade de Pessoas (ex: 10)">
+            <textarea id="observacoes" name="observacoes" placeholder="Observações (ex: sabor, recheio, decoração)"></textarea>
+            <button type="submit" class="btn">ENVIAR PEDIDO</button>
+        </form>
+    </section>
+
+    <div id="modal-carrinho" class="modal">
+        <div class="modal-content-carrinho">
+            <span class="close-btn">&times;</span>
+            <h3>Seu Carrinho</h3>
+            <div class="cart-items">
+            </div>
+            <div class="cart-actions">
+                <p>Total: R$ <span class="cart-total">0.00</span></p>
+                <button class="btn" id="checkout-btn">Finalizar Pedido</button>
+                <button class="btn" id="continue-shopping-btn">Comprar Mais</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Marju Confeitaria. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/seuperfil" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/seuperfil" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
