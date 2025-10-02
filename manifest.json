@@ -1,0 +1,26 @@
+{
+  "name": "Marju Confeitaria",
+  "short_name": "Marju",
+  "description": "Doces, bolos, tortas e salgados artesanais feitos com carinho",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#d4a574",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/logo2.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo2.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "business"],
+  "lang": "pt-BR"
+}
