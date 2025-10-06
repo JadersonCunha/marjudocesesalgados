@@ -95,14 +95,24 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'especial2', name: 'Combo Aniversário', price: 150.00, image: 'assets/WhatsApp Image 2025-09-08 at 14.01.44 (1).jpeg' },
         ],
         'bolo-colher': [
-            { id: 'colher1', name: 'Bolo de Colher Chocolate', price: 25.00, image: 'assets/bolo de colher 1.jpeg' },
             { id: 'colher2', name: 'Bolo de Colher Morango', price: 28.00, image: 'assets/bolo de colher 2.jpeg' },
             { id: 'colher3', name: 'Bolo de Colher Doce de Leite', price: 30.00, image: 'assets/bolo de colher 3.jpeg' },
             { id: 'colher4', name: 'Bolo de Colher Frutas Vermelhas', price: 32.00, image: 'assets/bolo de colher 4.jpeg' },
+            { id: 'colher1', name: 'Bolo de Colher Chocolate', price: 25.00, image: 'assets/bolo de colher 1.jpeg' },
         ],
         'naked-cake': [
             { id: 'naked1', name: 'Naked Cake Frutas Vermelhas', price: 85.00, image: 'assets/nake de cake 1.jpeg' },
             { id: 'naked2', name: 'Naked Cake Chocolate', price: 90.00, image: 'assets/nake de cake 2.jpeg' },
+        ],
+        'salgados-premium': [
+            { id: 'premium1', name: 'Panelinhas e Barquetes', price: 6.50, image: 'assets/panelinhas_barquetes_upscaled.png' },
+            { id: 'premium2', name: 'Mini Calzones', price: 7.00, image: 'assets/mini_calzones_upscaled.png' },
+            { id: 'premium3', name: 'Mini Hambúrguer e Doguinhos', price: 8.00, image: 'assets/mini_hamburguer_doguinhos_upscaled.png' },
+        ],
+        'brigadeiros': [
+            { id: 'brig1', name: 'Brigadeiros Premium', price: 4.50, image: 'assets/brigadeiros_premium_upscaled.png' },
+            { id: 'brig2', name: 'Brigadeiros Tradicionais', price: 3.50, image: 'assets/brigadeiros_tradicionais_upscaled.png' },
+            { id: 'brig3', name: 'Brigadeiros Especiais', price: 5.00, image: 'assets/brigadeiros_especiais_upscaled.png' },
         ],
     };
 
@@ -178,13 +188,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const sobreModalBtn = document.querySelector('[data-modal="modal-sobre"]');
-    if (sobreModalBtn) {
-        sobreModalBtn.addEventListener('click', (e) => {
+    const sobreModalBtns = document.querySelectorAll('[data-modal="modal-sobre"]');
+    sobreModalBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             openModal(document.getElementById('modal-sobre'));
         });
-    }
+    });
     
     const priceCard = document.querySelector('.price-card');
     const priceModal = document.getElementById('modal-price');
@@ -225,7 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'tortas': 'Tortas',
                 'especiais': 'Especiais',
                 'bolo-colher': 'Bolo de Colher',
-                'naked-cake': 'Naked Cake'
+                'naked-cake': 'Naked Cake',
+                'salgados-premium': 'Salgados Premium',
+                'brigadeiros': 'Brigadeiros'
             };
             galleryTitle.textContent = categoryNames[category] || category;
             galleryGrid.innerHTML = '';
@@ -234,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const productElement = document.createElement('div');
                 productElement.classList.add('gallery-item');
                 productElement.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy" class="gallery-image" data-src="${product.image}">
                     <h4>${product.name}</h4>
                     <p>R$ ${product.price.toFixed(2)}</p>
                     <button class="btn add-to-cart-btn" data-id="${product.id}" data-category="${category}" aria-label="Adicionar ${product.name} ao carrinho">
@@ -349,6 +361,19 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal(cartModal);
     });
     
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('gallery-image')) {
+            const imageSrc = e.target.dataset.src;
+            const imageAlt = e.target.alt;
+            const zoomImage = document.getElementById('zoom-image');
+            const zoomModal = document.getElementById('modal-image-zoom');
+            
+            zoomImage.src = imageSrc;
+            zoomImage.alt = imageAlt;
+            openModal(zoomModal);
+        }
+    });
+
     document.getElementById('checkout-btn').addEventListener('click', () => {
         if (cart.length === 0) {
             const announcement = document.createElement('div');
@@ -378,6 +403,27 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartModal();
         closeModal(cartModal);
     });
+
+    const floatingInfoBox = document.querySelector('.floating-info-box');
+    const footer = document.querySelector('.footer');
+    
+    const handleFloatingBoxVisibility = () => {
+        if (footer && floatingInfoBox) {
+            const footerRect = footer.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (footerRect.top <= windowHeight) {
+                floatingInfoBox.style.opacity = '0';
+                floatingInfoBox.style.transform = 'translateX(-100%)';
+            } else {
+                floatingInfoBox.style.opacity = '1';
+                floatingInfoBox.style.transform = 'translateX(0)';
+            }
+        }
+    };
+    
+    window.addEventListener('scroll', handleFloatingBoxVisibility);
+    handleFloatingBoxVisibility();
 
     const formPedido = document.getElementById('form-pedido');
     const formFields = {

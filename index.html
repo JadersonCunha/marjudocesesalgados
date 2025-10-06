@@ -27,24 +27,26 @@
     </a>
 
     <header class="header" role="banner">
-        <a href="#home" class="logo" aria-label="Marju Confeitaria - Página inicial">Marju</a>
-        <nav class="navbar" role="navigation" aria-label="Menu principal">
-            <button class="mobile-menu-toggle" aria-label="Abrir menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="#sobre" class="nav-link" data-modal="modal-sobre">Sobre</a></li>
-                <li><a href="#produtos" class="nav-link">Produtos</a></li>
-                <li><a href="#pagamento" class="nav-link">Pagamento</a></li>
-                <li><a href="#contato" class="nav-link">Contato</a></li>
-            </ul>
-        </nav>
-        <button class="cart-icon" id="cart-icon" aria-label="Abrir carrinho de compras">
-            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            <span class="cart-count" aria-label="Itens no carrinho">0</span>
-        </button>
+        <div class="header-content">
+            <a href="#home" class="logo" aria-label="Marju Confeitaria - Página inicial">Marju</a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <button class="mobile-menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#sobre" class="nav-link" data-modal="modal-sobre">Sobre</a></li>
+                    <li><a href="#produtos" class="nav-link">Produtos</a></li>
+                    <li><a href="#pagamento" class="nav-link">Pagamento</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+                <button class="cart-icon" id="cart-icon" aria-label="Abrir carrinho de compras">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="cart-count" aria-label="Itens no carrinho">0</span>
+                </button>
+            </nav>
+        </div>
     </header>
 
     <div class="fixed-corner-shape">
@@ -63,7 +65,15 @@
                 <img src="assets/img_conf.JPG" alt="Marju Confeiteira" class="about-image">
                 <div class="about-text">
                     <h3>Sobre a Marju</h3>
-                    <p>Olá! Meu nome é Marju e a confeitaria é a minha paixão. Desde pequena, crio receitas com o objetivo de adoçar a vida das pessoas. Cada doce é feito com ingredientes de alta qualidade e muito afeto, para que cada mordida seja uma experiência inesquecível. Sejam bem-vindos ao meu mundo de sabores!</p>
+                    <p>Em 2010, comecei a fazer bolos para minha família, de forma totalmente amadora, apenas como um hobby. Na época, percebia a dificuldade em encontrar bolos verdadeiramente saborosos, úmidos e bem recheados à venda. O que era apenas uma diversão, aos poucos se transformou em uma paixão, e com ela veio a vontade de aprender mais e me aperfeiçoar.</p>
+                    <p>Em 2016, sem grandes pretensões, esse hobby começou a se tornar uma fonte de renda. Pessoas próximas, que já haviam experimentado meus bolos, passaram a fazer encomendas para suas comemorações. Foi então que senti a necessidade de me especializar, aprender novas técnicas e me profissionalizar — afinal, acredito que um bolo nunca é "só um bolo". Ele é, muitas vezes, a estrela da mesa nas celebrações.</p>
+                    <p>Desde então, venho me dedicando a cursos e aprimoramentos constantes. Em 2019, dei um passo importante e ingressei no curso de Gastronomia na Unifatecie, reforçando ainda mais meu compromisso com a qualidade e a excelência.</p>
+                    <p>Continuo acreditando que um bolo vai muito além de um simples doce: ele é uma experiência gastronômica, um símbolo de união, confraternização e, muitas vezes, de emoção.</p>
+                    <p><strong>Minha especialidade:</strong> Bolos decorados e brigadeiros tradicionais e gourmet</p>
+                    <p><strong>Faço também:</strong><br>
+Tortas doces, torta de sorvete, cupcakes, bolos caseiros, caixinhas de doces presenteáveis, ovos de páscoa tradicionais e de colher e chocotones.</p>
+                    <p><strong>Salgados:</strong><br>
+Pizzas caseiras, mini hambúrguer, doguinhos assados, empadas, panelinhas e barquetes, mini quiches e mini calzones.</p>
                 </div>
             </div>
         </div>
@@ -130,7 +140,7 @@
                     </article>
                     <article class="category-card" data-category="bolo-colher" role="listitem" tabindex="0">
                         <div class="category-image">
-                            <img src="assets/bolo de colher 1.jpeg" alt="Bolos de colher" loading="lazy">
+                            <img src="assets/bolo de colher 2.jpeg" alt="Bolos de colher" loading="lazy">
                             <div class="category-overlay">
                                 <i class="fas fa-eye" aria-hidden="true"></i>
                                 <span>Ver Produtos</span>
@@ -150,6 +160,28 @@
                         <h3>Naked Cake</h3>
                         <p>Estilo rústico e natural</p>
                     </article>
+                    <article class="category-card" data-category="salgados-premium" role="listitem" tabindex="0">
+                        <div class="category-image">
+                            <img src="assets/panelinhas_barquetes_upscaled.png" alt="Salgados premium" loading="lazy">
+                            <div class="category-overlay">
+                                <i class="fas fa-eye" aria-hidden="true"></i>
+                                <span>Ver Produtos</span>
+                            </div>
+                        </div>
+                        <h3>Salgados Premium</h3>
+                        <p>Panelinhas, barquetes e mini calzones</p>
+                    </article>
+                    <article class="category-card" data-category="brigadeiros" role="listitem" tabindex="0">
+                        <div class="category-image">
+                            <img src="assets/brigadeiros_premium_upscaled.png" alt="Brigadeiros" loading="lazy">
+                            <div class="category-overlay">
+                                <i class="fas fa-eye" aria-hidden="true"></i>
+                                <span>Ver Produtos</span>
+                            </div>
+                        </div>
+                        <h3>Brigadeiros</h3>
+                        <p>Tradicionais, premium e especiais</p>
+                    </article>
                     <article class="price-card" role="listitem">
                         <div class="price-content">
                             <img src="assets/criativo_precos.png" alt="Tabela de preços" class="price-image" id="price-image">
@@ -160,6 +192,13 @@
                 </div>
             </div>
         </section>
+
+        <div class="floating-info-box">
+            <div class="info-content">
+                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                <p><strong>Bolos Decorados:</strong> Cada bolo é único! Por isso, faço orçamentos personalizados considerando tamanho, sabor e decoração. Entre em contato para criarmos juntos o bolo dos seus sonhos! 🎂</p>
+            </div>
+        </div>
 
     <div id="modal-galeria" class="modal">
         <div class="modal-content-galeria">
@@ -182,6 +221,62 @@
         <div class="modal-content-price">
             <span class="close-btn">&times;</span>
             <img src="assets/quanto bolo servir.png" alt="Guia de quanto bolo servir" class="price-image-large">
+        </div>
+    </div>
+
+    <div id="modal-doces" class="modal">
+        <div class="modal-content-price">
+            <span class="close-btn">&times;</span>
+            <img src="assets/beijinho.jpeg" alt="Cardápio de doces" class="price-image-large">
+        </div>
+    </div>
+
+    <div id="modal-salgados" class="modal">
+        <div class="modal-content-price">
+            <span class="close-btn">&times;</span>
+            <img src="assets/mini-sanduiches.jpeg" alt="Cardápio de salgados" class="price-image-large">
+        </div>
+    </div>
+
+    <div id="modal-bolos" class="modal">
+        <div class="modal-content-price">
+            <span class="close-btn">&times;</span>
+            <img src="assets/bolo-tradicional.jpeg" alt="Cardápio de bolos" class="price-image-large">
+        </div>
+    </div>
+
+    <div id="modal-tortas" class="modal">
+        <div class="modal-content-price">
+            <span class="close-btn">&times;</span>
+            <img src="assets/torta de morango.jpeg" alt="Cardápio de tortas" class="price-image-large">
+        </div>
+    </div>
+
+    <div id="modal-bolo-colher" class="modal">
+        <div class="modal-content-price">
+            <span class="close-btn">&times;</span>
+            <img src="assets/bolo de colher 2.jpeg" alt="Cardápio de bolo de colher" class="price-image-large">
+        </div>
+    </div>
+
+    <div id="modal-naked-cake" class="modal">
+        <div class="modal-content-price">
+            <span class="close-btn">&times;</span>
+            <img src="assets/nake de cake 2.jpeg" alt="Cardápio de naked cake" class="price-image-large">
+        </div>
+    </div>
+
+    <div id="modal-salgados-premium" class="modal">
+        <div class="modal-content-price">
+            <span class="close-btn">&times;</span>
+            <img src="assets/panelinhas_barquetes_upscaled.png" alt="Cardápio de salgados premium" class="price-image-large">
+        </div>
+    </div>
+
+    <div id="modal-image-zoom" class="modal">
+        <div class="modal-content-price">
+            <span class="close-btn">&times;</span>
+            <img src="" alt="Imagem ampliada" class="price-image-large" id="zoom-image">
         </div>
     </div>
 
@@ -276,6 +371,15 @@
                 <div class="footer-info">
                     <h3>Marju Confeitaria</h3>
                     <p>Doces artesanais feitos com carinho desde 2025</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sobre" data-modal="modal-sobre">Sobre</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#pagamento">Pagamento</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contato</h4>

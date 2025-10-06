@@ -1,0 +1,15 @@
+{
+  "short_name": "Marju Confeitaria",
+  "name": "Marju Confeitaria - Doces Artesanais",
+  "icons": [
+    {
+      "src": "assets/logo2.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#d4a574",
+  "background_color": "#ffffff"
+}
