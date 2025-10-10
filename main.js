@@ -424,6 +424,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('scroll', handleFloatingBoxVisibility);
     handleFloatingBoxVisibility();
+    
+    const infoCloseBtn = document.getElementById('info-close-btn');
+    const floatingInfoBoxElement = document.getElementById('floating-info-box');
+    
+    if (infoCloseBtn && floatingInfoBoxElement) {
+        infoCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            floatingInfoBoxElement.classList.add('hidden');
+        });
+        
+        floatingInfoBoxElement.addEventListener('click', (e) => {
+            if (e.target === infoCloseBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
+        });
+    }
 
     const formPedido = document.getElementById('form-pedido');
     const formFields = {

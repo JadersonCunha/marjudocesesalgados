@@ -233,11 +233,42 @@ body {
     transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
+.floating-info-box.hidden {
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.info-close-btn {
+    display: none;
+    position: absolute;
+    top: var(--space-1);
+    right: var(--space-1);
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: var(--text-xs);
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    z-index: 1;
+}
+
+.info-close-btn:hover {
+    background: var(--primary-dark);
+}
+
 .info-content {
     padding: var(--space-4);
     display: flex;
     align-items: flex-start;
     gap: var(--space-3);
+    position: relative;
 }
 
 .info-content i {
@@ -286,6 +317,14 @@ body {
         right: var(--space-4);
         max-width: none;
     }
+    
+    .info-close-btn {
+        display: flex;
+    }
+    
+    .hero-decoration {
+        display: none;
+    }
 }
 
 .header {
@@ -319,13 +358,15 @@ body {
     font-family: var(--font-display);
     font-size: var(--text-3xl);
     font-weight: 700;
-    color: var(--primary-color);
+    color: transparent;
     text-decoration: none;
     transition: color var(--transition-fast);
+    text-shadow: none;
+    pointer-events: none;
 }
 
 .logo:hover {
-    color: var(--primary-dark);
+    color: transparent;
 }
 
 .navbar {
@@ -437,6 +478,7 @@ body {
     border-bottom-right-radius: 150%;
     z-index: var(--z-fixed);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -444,14 +486,20 @@ body {
 }
 
 .fixed-corner-shape img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 145px;
     height: auto;
-    z-index: 1;
     border-radius: var(--radius-xl);
+    margin-bottom: var(--space-2);
+}
+
+.fixed-corner-shape::after {
+    content: 'Marju';
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 .hero {
@@ -1217,7 +1265,10 @@ section {
     }
     
     .hero::after {
-        display: none;
+        bottom: 5%;
+        right: 5%;
+        width: 150px;
+        height: 150px;
     }
     
     .hero-text {
@@ -1238,7 +1289,18 @@ section {
     }
     
     .fixed-corner-shape {
-        display: none;
+        top: -50px;
+        left: -70px;
+        width: 300px;
+        height: 300px;
+    }
+    
+    .fixed-corner-shape img {
+        width: 100px;
+    }
+    
+    .fixed-corner-shape::after {
+        font-size: var(--text-lg);
     }
     
     .product-categories {
