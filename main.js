@@ -44,10 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScrollY = window.scrollY;
     });
     
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]:not([data-modal])').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            const target = document.querySelector(href);
             if (target) {
                 const headerHeight = header.offsetHeight;
                 const targetPosition = target.offsetTop - headerHeight - 20;
@@ -56,6 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Fechar menu mobile se estiver aberto
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    mobileMenuToggle.classList.remove('active');
+                }
             }
         });
     });
