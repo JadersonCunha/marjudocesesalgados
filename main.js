@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     emailjs.init('1zV_QTrVAKwhKpyL9');
     
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
     const navMenu = document.querySelector('.nav-menu');
     const header = document.querySelector('.header');
     
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
             mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
             
             mobileMenuToggle.classList.toggle('active');
         });
@@ -19,10 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.addEventListener('click', (e) => {
             if (e.target.classList.contains('nav-link')) {
                 navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
                 mobileMenuToggle.classList.remove('active');
             }
         });
+        
+
+        
+
     }
     
     let lastScrollY = window.scrollY;
